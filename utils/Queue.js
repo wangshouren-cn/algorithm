@@ -21,4 +21,10 @@ module.exports = class Queue {
   isEmpty() {
     return this.stack.length < 1
   }
+  peekLast() {
+    return this.stack[this.stack.length - 1]
+  }
+  pollLast() {
+    return this.stack.pop()
+  }
 }
