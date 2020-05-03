@@ -1,5 +1,6 @@
 /* 
 冒泡排序
+稳定性：true
 */
 const { swap } = require('../utils')
 

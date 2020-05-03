@@ -1,5 +1,6 @@
 /* 
 归并排序
+稳定性：true
 */
 //T(n) = 2T(n/2) + T(n) 利用master公式 O(n) = nlogn
 //时间复杂度：O(N*logN),空间复杂度：O(N)

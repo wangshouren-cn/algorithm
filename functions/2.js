@@ -1,5 +1,6 @@
 /* 
 选择排序
+稳定性：false
 */
 const { swap } = require('../utils')
 

@@ -2,6 +2,7 @@
 随机快排
 用荷兰国旗优化快速排序
 时间复杂度O(N*logN)，额外空间复杂度O(logN)
+稳定性：false
 */
 const swap = require('../utils/swap')
 function quickSort(arr) {
