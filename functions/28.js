@@ -22,7 +22,7 @@
 先来分析原问题，如果链表为空或者长度为1，不需要调整，则直接返回；如果链表 的长度为2，将头节点删除即可；当链表长度到达3，应该删除第2个节点；当链表长 度为4，应该删除第2个节点；当链表长度为5，应该删除第3个节点……也就是链表
 长度每增加2（3，5，7…），要删除的节点就后移一个节点。删除节点的问题在之 前的题目中我们已经讨论过，如果要删除一个节点，则需要找到待删除节点的前一 个节点。
 */
-const buildLinkList = require('../utils/buildLinkList')
+
 function removeMid(head) {
   if (head == null || head.next == null) {
     //链表长度小于2
@@ -61,5 +61,7 @@ function removeByRatio(node, a, b) {
   pre.next = pre.next ? pre.next.next : null
   return node
 }
-const node = buildLinkList(10, false)
-removeByRatio(node, 2, 3).log()
+/*
+const buildLinkList = require('../utils/buildLinkList')
+ const node = buildLinkList(10, false)
+removeByRatio(node, 2, 3).log() */
