@@ -134,15 +134,25 @@ const routes1 = [
 ]
 function walk(routes, father, res = {}) {
   routes.forEach(({ path, name, routes }) => {
-      const newNode = {
-        name,
-        father,
-      }
+    const newNode = {
+      name,
+      father,
+    }
+    /*   if (typeof name === 'string') {
       res[path] = newNode
-      
-      if (Array.isArray(routes) && routes.length > 0) {
-        walk(routes, newNode, res)
-      }
+    } */
+
+    if (Array.isArray(routes) && routes.length > 0) {
+      walk(routes, typeof name === 'string' ? newNode : null, res)
+    }
+    /* if (typeof path === 'string') {
+      const pathGroup = path.split('/').map((s) => (s ? s : ''))
+      for (
+        let i = pathGroup.length - 2, s;
+        i > 0 && (s = pathGroup.slice(0, i++).join('/'));
+
+      ) {}
+    } */
   })
   return res
 }
