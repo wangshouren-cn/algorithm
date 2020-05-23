@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/wangshouren-cn/algorithmExercise/issues"
   },
-  "homepage": "https://github.com/wangshouren-cn/algorithmExercise#readme"
+  "homepage": "https://github.com/wangshouren-cn/algorithmExercise#readme",
+  "dependencies": {
+    "@types/node": "^14.0.5"
+  }
 }
