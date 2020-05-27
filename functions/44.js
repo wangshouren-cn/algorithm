@@ -7,7 +7,7 @@
 士　★☆☆☆
 */
 const buildLinkList = require('../utils/buildLinkList')
-function selectionSort(head) {
+export function selectionSort(head) {
   if (!head) return head
   let tail = null,
     cur = head,

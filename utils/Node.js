@@ -1,22 +1,34 @@
-class Node {
-  constructor(data) {
-    this.data = data
-    this.next = null
-    this.last = null
-  }
-  log() {
-    let res = `${this.data}`
-    let cur = this
-    while (cur.next) {
-      cur = cur.next
-      res += `${cur.last ? '<->' : '->'}${cur.data}`
+"use strict";
+exports.__esModule = true;
+var Node = /** @class */ (function () {
+    function Node(data) {
+        this.data = data;
+        this.next = null;
+        this.last = null;
     }
-    console.log(res)
-  }
+    Node.prototype.log = function () {
+        var res = "" + this.data;
+        var cur = this;
+        while (cur.next) {
+            cur = cur.next;
+            res += "" + (cur.last ? '<->' : '->') + cur.data;
+        }
+        console.log(res);
+    };
+    return Node;
+}());
+exports["default"] = Node;
+function buildLinkList(size, isDouble, RandNumber) {
+    if (size < 1)
+        return null;
+    var res = new Node(RandNumber ? Math.floor(Math.random() * RandNumber) + 1 : 1);
+    var cur = res, x = 2;
+    while (x <= size) {
+        cur.next = new Node(RandNumber ? Math.floor(Math.random() * RandNumber) : x);
+        isDouble ? (cur.next.last = cur) : null;
+        cur = cur.next;
+        x++;
+    }
+    return res;
 }
-const node = (Node.example = new Node(1))
-node.next = new Node(2)
-node.next.next = new Node(3)
-node.next.next.next = new Node(4)
-node.next.next.next.next = new Node(5)
-module.exports = Node
+exports.buildLinkList = buildLinkList;
