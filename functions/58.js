@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var Tree_1 = require("../utils/Tree");
+var _57_1 = require("./57");
 /*
 如何直观打印一棵二叉树
 */
@@ -18,4 +19,19 @@ function printNode(node, height, to, len) {
     console.log(val);
     printNode(node.left, height + 1, "^", len);
 }
-printTree(Tree_1.buildTree(10));
+// printTree(buildTree(10));
+function printTree2(head) {
+    console.log("minDepth(head)", _57_1["default"](head));
+    printNode2(head, _57_1["default"](head));
+}
+function printNode2(head, height) {
+    if (head == null)
+        return;
+    console.log(" ".repeat(height) + head.data); //     ----------1
+    for (var i = 1; i < height; i++) {
+        console.log(" ".repeat(height - i) + "/" + " ".repeat((i - 1) * 2) + " \\");
+    }
+    printNode2(head.left, height - 1);
+    //   printNode2(head.right, minDepth(head.right));
+}
+printTree2(Tree_1.buildTree(3));

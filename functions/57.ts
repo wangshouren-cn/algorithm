@@ -68,4 +68,5 @@ function minDepth2(head: TreeNode) {
   }
   return Math.max(minHeight, mostRightLevel);
 }
+export default minDepth2
 console.log(minDepth2(buildTree(8)));

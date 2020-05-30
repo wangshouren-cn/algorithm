@@ -26,7 +26,7 @@ function progress(head, level) {
     }
     return minHeight;
 }
-//进阶】
+//【进阶】
 function minDepth2(head) {
     if (head == null)
         return 0;
@@ -67,4 +67,5 @@ function minDepth2(head) {
     }
     return Math.max(minHeight, mostRightLevel);
 }
+exports["default"] = minDepth2;
 console.log(minDepth2(Tree_1.buildTree(8)));
