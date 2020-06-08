@@ -13,6 +13,10 @@ var Queue = /** @class */ (function () {
         this.stack.push(x);
         return this;
     };
+    Queue.prototype.addFirst = function (x) {
+        this.stack.unshift(x);
+        return this;
+    };
     //返回队列头元素
     Queue.prototype.peek = function () {
         return this.stack[0];
