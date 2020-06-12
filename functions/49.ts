@@ -11,7 +11,7 @@ function serialize(head: TreeNode) {
   res += serialize(head.right)
   return res
 }
-function deserialization(string: string) {
+function deSerialization(string: string) {
   const queue = new Queue()
   const res = string.split('_')
   for (let i = 0; i < res.length - 1; i++) {
@@ -31,4 +31,4 @@ function progress(queue: Queue): TreeNode {
 }
 const node = buildTree(5)
 const res = serialize(node)
-console.log(serialize(deserialization(res)))
+console.log(serialize(deSerialization(res)))
