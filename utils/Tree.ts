@@ -32,35 +32,60 @@ function printNode(node: TreeNode, height: number, to: string, len: number) {
   console.log(val);
   printNode(node.left, height + 1, "^", len);
 }
+/**
+ * @description: 创建树节点
+ * @param {type}
+ * @return: TreeNode
+ */
 export function buildTree(
-  size: number,
-  includeParent: boolean,
-  value: number
+  size: number | any[],
+  includeParent?: boolean,
+  value?: number
 ): TreeNode {
+  if (Array.isArray(size)) {
+    if (size.length == 0) return null;
+    const numberArr = size;
+    let head = new TreeNode(numberArr.shift()),
+      left = true,
+      father: TreeNode = head,
+      fatherArr = [];
+    while (numberArr.length > 0) {
+      const newNode = new TreeNode(
+        numberArr.shift(),
+        includeParent ? father : null
+      );
+      fatherArr.push(newNode);
+      if (left) {
+        father.left = newNode;
+      } else {
+        father.right = newNode;
+        father = fatherArr.shift();
+      }
+      left = !left;
+    }
+
+    return head;
+  }
   if (size < 1) return null;
   const queue = new Queue<TreeNode>();
-  const head = new TreeNode(1, null);
+  const head = new TreeNode(1);
   queue.add(head);
-  let currentSize = 1;
-  while (currentSize != size) {
-    const node = queue.poll();
-    ++currentSize;
-    queue.add(
-      (node.left = new TreeNode(
-        value ? Math.round(Math.random() * value) : currentSize,
-        includeParent ? node : undefined
-      ))
+  let currentSize = 1,
+    left = true,
+    father;
+  while (++currentSize <= size) {
+    let newNode = new TreeNode(
+      value ? Math.floor(Math.random() * value) : currentSize,
+      includeParent ? father : null
     );
-    if (currentSize === size) {
-      return head;
+    if (left) {
+      father = queue.poll();
+      father.left = newNode;
     } else {
-      queue.add(
-        (node.right = new TreeNode(
-          value ? Math.round(Math.random() * value) : currentSize,
-          includeParent ? node : undefined
-        ))
-      );
+      father.right = newNode;
     }
+    queue.add(newNode);
+    left = !left;
   }
   return head;
 }
